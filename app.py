@@ -6,7 +6,7 @@ import numpy as np
 import datetime
 
 # Load the dataset into a pandas DataFrame
-df = pd.read_csv("datasets\student-scores.csv")
+df = pd.read_csv("datasets/student-scores.csv")
 # Define columns to be converted to "Yes" or "No"
 boolean_columns = ['part_time_job']
 
