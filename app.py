@@ -78,20 +78,22 @@ with tab1:
     with col2:
         fig1 = px.bar(df, x = by_what, y = "math_score", color = by_what,
                     labels={by_what: category_mapping[by_what], "math_score": "Math Score"},
-                    title = f"Average Math Score by {category_mapping[by_what]}")
-        st.plotly_chart(fig1, theme = "streamlit", use_container_width=True, color_discrete_map=color_map)
+                    title = f"Average Math Score by {category_mapping[by_what]}", 
+                    color_discrete_map=color_map)
+        st.plotly_chart(fig1, theme = "streamlit", use_container_width=True)
         
     fig1a = px.scatter(df, x = "weekly_self_study_hours", y = "math_score", color = by_what,
                     labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score"},
                     # size = "math_score", 
                     marginal_x="histogram", marginal_y="histogram",
-                    title = "Math Scores vs Self-study Hours")
-    st.plotly_chart(fig1a, theme = "streamlit", use_container_width=True, color_discrete_map=color_map)
+                    title = "Math Scores vs Self-study Hours",
+                    color_discrete_map=color_map)
+    st.plotly_chart(fig1a, theme = "streamlit", use_container_width=True)
 
     fig1b = px.line(df, x="weekly_self_study_hours", y="math_score", 
                 labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score", by_what: category_mapping[by_what]},
                 color=by_what, facet_col = by_what, facet_col_wrap=3)
-    st.plotly_chart(fig1b, theme="streamlit", use_container_width=False, height=800, color_discrete_map=color_map)
+    st.plotly_chart(fig1b, theme="streamlit", use_container_width=False, height=800)
 with tab2:
     category_mapping = {
     'gender': 'Gender',
