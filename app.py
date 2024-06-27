@@ -60,8 +60,6 @@ st.text("We explore the scores of students based on a selected category.")
 tab1, tab2 = st.tabs(["General relation", "Counts"])
 
 color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'Yes': '#3AB649', 'No': '#ED1B25'}  # Adjust other categories and colors as needed
-color_sequence = ['#FFFFFF', '#0000FF']
-
 
 with tab1:
     col1, col2 = st.columns([1,3])
@@ -84,8 +82,8 @@ with tab1:
         fig1 = px.bar(df, x = by_what, y = "math_score", color = by_what,
                     labels={by_what: category_mapping[by_what], "math_score": "Math Score"},
                     title = f"Average Math Score by {category_mapping[by_what]}", 
-                    color_discrete_map=color_map,  color_discrete_sequence=color_sequence)
-        st.plotly_chart(fig1, theme = None, use_container_width=True)
+                    color_discrete_map=color_map)
+        st.plotly_chart(fig1, theme = "streamlit", use_container_width=True)
         
     fig1a = px.scatter(df, x = "weekly_self_study_hours", y = "math_score", color = by_what,
                     labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score"},
