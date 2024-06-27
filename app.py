@@ -89,7 +89,7 @@ with tab1:
     st.plotly_chart(fig1a, theme = "streamlit", use_container_width=True)
 
     fig1b = px.line(df, x="weekly_self_study_hours", y="math_score", 
-                labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score"},
+                labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score", by_what: category_mapping[by_what]},
                 color=by_what, facet_col = by_what, facet_col_wrap=3)
     st.plotly_chart(fig1b, theme="streamlit", use_container_width=False, height=800)
 with tab2:
