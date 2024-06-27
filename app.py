@@ -117,7 +117,11 @@ with tab2:
     col1, col2 = st.columns(2)
     with col1:
         if not df2.empty:
-            fig2 = px.bar(df2, x=df2.index, y="count", text_auto=True, title="In frequency", color_discrete_map=color_map)
+            # Create the bar chart with customized colors
+            fig2 = px.bar(df2, x=df2.index, y="count", text_auto=True, title="In frequency",
+                          color=df2.index, color_discrete_map=color_map)
+
+            # Display the chart
             st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
         else:
             st.write("No data available for the selected range.")
