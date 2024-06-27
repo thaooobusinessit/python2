@@ -122,7 +122,13 @@ with tab2:
             st.write("No data available for the selected range.")
     with col2:
         if not df2.empty:
-            fig3 = px.pie(df2, values = "count", names = df2.index, hole = 0.4, title = "In percentage")
+            color_map = {'female': 'pink', 'male': 'blue'}  # Adjust other categories and colors as needed
+
+            # Create the pie chart with customized colors
+            fig3 = px.pie(df2, values="count", names=df2.index, hole=0.4, title="In percentage",
+                          color=df2.index, color_discrete_map=color_map)
+            
+            # Display the chart
             st.plotly_chart(fig3, theme="streamlit", use_container_width=True)
         else:
             st.write("No data available for the selected range.")
