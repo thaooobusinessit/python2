@@ -60,7 +60,7 @@ st.text("We explore the scores of students based on a selected category.")
 tab1, tab2 = st.tabs(["General relation", "Counts"])
 
 color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'Yes': '#3AB649', 'No': '#ED1B25'}  # Adjust other categories and colors as needed
-color_sequence = ['#FFFFFF', '#ADD8E6', '#0000FF']
+color_sequence = ['#FFFFFF', '#0000FF']
 
 
 with tab1:
