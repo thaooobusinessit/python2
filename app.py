@@ -113,17 +113,16 @@ with tab2:
     dff = df[(df['math_score'] >= tbr[0]) & (df['math_score'] <= tbr[1])]
     df2 = pd.crosstab(index=dff[by_what_2], columns="count")
 
+    color_map = {'female': 'pink', 'male': 'blue'}  # Adjust other categories and colors as needed
     col1, col2 = st.columns(2)
     with col1:
         if not df2.empty:
-            fig2 = px.bar(df2, x=df2.index, y="count", text_auto=True, title="In frequency")
+            fig2 = px.bar(df2, x=df2.index, y="count", text_auto=True, title="In frequency", color_discrete_map=color_map)
             st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
         else:
             st.write("No data available for the selected range.")
     with col2:
         if not df2.empty:
-            color_map = {'female': 'pink', 'male': 'blue'}  # Adjust other categories and colors as needed
-
             # Create the pie chart with customized colors
             fig3 = px.pie(df2, values="count", names=df2.index, hole=0.4, title="In percentage",
                           color=df2.index, color_discrete_map=color_map)
