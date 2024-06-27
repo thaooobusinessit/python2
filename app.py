@@ -113,7 +113,7 @@ with tab2:
     dff = df[(df['math_score'] >= tbr[0]) & (df['math_score'] <= tbr[1])]
     df2 = pd.crosstab(index=dff[by_what_2], columns="count")
 
-    color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'yes': '#3AB649', 'no': '#ED1B25'}  # Adjust other categories and colors as needed
+    color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'yes': '#3AB649', 'no': '#F6000C'}  # Adjust other categories and colors as needed
     col1, col2 = st.columns(2)
     with col1:
         if not df2.empty:
