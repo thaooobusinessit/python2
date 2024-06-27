@@ -58,7 +58,7 @@ st.header("Scores Analysis by Selected Category")
 st.text("We explore the scores of students based on a selected category.")
 
 tab1, tab2 = st.tabs(["General relation", "Counts"])
-
+color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'Yes': '#3AB649', 'No': '#ED1B25'}  # Adjust other categories and colors as needed
 with tab1:
     col1, col2 = st.columns([1,3])
 
@@ -79,19 +79,19 @@ with tab1:
         fig1 = px.bar(df, x = by_what, y = "math_score", color = by_what,
                     labels={by_what: category_mapping[by_what], "math_score": "Math Score"},
                     title = f"Average Math Score by {category_mapping[by_what]}")
-        st.plotly_chart(fig1, theme = "streamlit", use_container_width=True)
+        st.plotly_chart(fig1, theme = "streamlit", use_container_width=True, color_discrete_map=color_map)
         
     fig1a = px.scatter(df, x = "weekly_self_study_hours", y = "math_score", color = by_what,
                     labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score"},
                     # size = "math_score", 
                     marginal_x="histogram", marginal_y="histogram",
                     title = "Math Scores vs Self-study Hours")
-    st.plotly_chart(fig1a, theme = "streamlit", use_container_width=True)
+    st.plotly_chart(fig1a, theme = "streamlit", use_container_width=True, color_discrete_map=color_map)
 
     fig1b = px.line(df, x="weekly_self_study_hours", y="math_score", 
                 labels={"weekly_self_study_hours": "Weekly Self-study Hours", "math_score": "Math Score", by_what: category_mapping[by_what]},
                 color=by_what, facet_col = by_what, facet_col_wrap=3)
-    st.plotly_chart(fig1b, theme="streamlit", use_container_width=False, height=800)
+    st.plotly_chart(fig1b, theme="streamlit", use_container_width=False, height=800, color_discrete_map=color_map)
 with tab2:
     category_mapping = {
     'gender': 'Gender',
@@ -113,7 +113,7 @@ with tab2:
     dff = df[(df['math_score'] >= tbr[0]) & (df['math_score'] <= tbr[1])]
     df2 = pd.crosstab(index=dff[by_what_2], columns="count")
 
-    color_map = {'female': '#FF7BAC', 'male': '#40A9F5', 'Yes': '#3AB649', 'No': '#ED1B25'}  # Adjust other categories and colors as needed
+    
     col1, col2 = st.columns(2)
     with col1:
         if not df2.empty:
