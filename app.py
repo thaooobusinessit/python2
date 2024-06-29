@@ -28,8 +28,8 @@ with st.sidebar:
     st.markdown("Author: **Hoang Thanh Thao**") # Change name of author here
     st.write("Date: ", datetime.date.today())
     st.text("Description: This is an Interactive Web Application for \nanalyzing student math scores.")
-    st.text("This interactive web application provides a comprehensive analysis of senior students' mathematics performance at the end of their final semester in a fictional high school. By leveraging this tool, users can delve into the factors influencing students' math scores, such as gender, part-time job engagement, absence days, and weekly self-study hours. This detailed examination allows educators, parents, and policymakers to identify patterns and potential areas for intervention, ultimately aiming to enhance students' academic outcomes. The dataset offers a rich source of information, capturing diverse aspects of students' academic lives, which can be pivotal for informed decision-making and educational strategies.")
-    #Modify description
+    st.text("This interactive web application provides a comprehensive analysis of senior students' mathematics performance at the end of their final semester in a fictional high school.\n\nBy leveraging this tool, users can delve into the factors influencing students' math scores, such as gender, part-time job engagement, absence days, and weekly self-study hours.\n\nThis detailed examination allows educators, parents, and policymakers to identify patterns and potential areas for intervention, ultimately aiming to enhance students' academic outcomes.\n\nThe dataset offers a rich source of information, capturing diverse aspects of students' academic lives, which can be pivotal for informed decision-making and educational strategies.")
+
 # Main content
 st.title("Student Performance Analysis")
 st.markdown("We analyze the **Student Scores** dataset to understand the performance of senior students in mathematics.")
